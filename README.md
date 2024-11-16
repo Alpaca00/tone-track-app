@@ -4,29 +4,36 @@ A diary application that analyzes entries based on sentiment analysis, helping u
 
 **Email:** [tonetrack.uno@gmail.com](mailto:tonetrack.uno@gmail.com)
 
-#### Installation
+**Public API:** The sentiment analysis API is publicly available and hosted on a private cloud. For more information, please refer to the [GitHub](https://github.com/Alpaca00/tone-track-service).
+
+### Installation Guide on device
 
 1. Download the latest APK from the [Releases](https://github.com/Alpaca00/tone-track-app/releases) page.
 2. Enable installation from unknown sources in your device settings.
 3. Install the APK file on your Android device.
 
 
-#### To build and use this tone-track app, ensure you have the following dependencies installed on your local machine:
+### Prerequisites for Building the Application
 
-- Flutter SDK [download](https://docs.flutter.dev/get-started/install)
+Before you begin, ensure that you have the following dependencies installed on your local machine:
 
-##### For Android applications:
-- [Java 17](https://openjdk.org/projects/jdk/17/)
-- [Android SDK](https://developer.android.com/tools/releases/platform-tools)
+- **Flutter SDK**: [Download Flutter SDK](https://docs.flutter.dev/get-started/install)
 
-#### Install dependencies
+For **Android applications**, you’ll also need:
+
+- **Java 17**: [Download Java 17](https://openjdk.org/projects/jdk/17/)
+- **Android SDK**: [Download Android SDK](https://developer.android.com/tools/releases/platform-tools)
+
+### Installing Dependencies
+
+To install all the necessary packages and build the app, run the following commands:
 
 ```shell
 flutter packages get
 flutter build apk
 ```
 
-#### A Snapshot of Screens
+### A Snapshot of Screens
 
 <p float="left">
   <img src="assets/images/home.png" width="200" />
