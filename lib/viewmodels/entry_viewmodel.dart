@@ -9,18 +9,21 @@ class EntryViewModel extends ChangeNotifier {
   List<Entry> get entries => _entries;
 
   Future<void> fetchEntries() async {
-    _entries.clear();
     final entriesFromDb = await _databaseService.getEntries();
-    _entries.addAll(entriesFromDb);
+    _entries
+      ..clear()
+      ..addAll(entriesFromDb.where((newEntry) => !_entries.contains(newEntry)));
     _sortEntriesByDate();
     notifyListeners();
   }
 
   void addEntry(Entry entry) async {
-    await _databaseService.saveEntry(entry);
-    _entries.add(entry);
-    _sortEntriesByDate();
-    notifyListeners();
+    if (!_entries.contains(entry)) {
+      await _databaseService.saveEntry(entry);
+      await fetchEntries();
+      _sortEntriesByDate();
+      notifyListeners();
+    }
   }
 
   void _sortEntriesByDate() {

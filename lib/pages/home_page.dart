@@ -21,7 +21,12 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    Provider.of<EntryViewModel>(context, listen: false).fetchEntries();
+    _loadEntries();
+  }
+
+  Future<void> _loadEntries() async {
+    await Provider.of<EntryViewModel>(context, listen: false).fetchEntries();
+    setState(() {});
   }
 
   @override
@@ -44,8 +49,7 @@ class _HomePageState extends State<HomePage> {
                   builder: (context) => const AddEntryPage(),
                 ),
               );
-              Provider.of<EntryViewModel>(context, listen: false)
-                  .fetchEntries();
+              _loadEntries();
             },
           ),
         ],
