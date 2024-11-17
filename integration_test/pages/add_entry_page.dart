@@ -8,11 +8,11 @@ class AddEntryPage {
 
   AddEntryPage(this.tester);
 
-  Finder get label => find.text(TestConstants.label);
+  Finder get labelText => find.text(TestConstants.labelText);
 
   Finder get saveButton => find.text(TestConstants.saveButtonLabel);
 
-  Future<void> enterTextIntoTextField(String text) async {
+  Future<void> enterEntryTextField(String text) async {
     await tester.enterText(find.byType(TextField), text);
   }
 
@@ -23,7 +23,7 @@ class AddEntryPage {
   }
 
   Future<void> verifyAddEntryPage() async {
-    expect(label, findsOneWidget);
+    expect(labelText, findsOneWidget);
     expect(saveButton, findsOneWidget);
   }
 }

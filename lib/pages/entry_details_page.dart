@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/entry.dart';
 import '../services/database_service.dart';
 import '../utils/constants.dart';
 import '../utils/date_utils.dart';
+import '../viewmodels/entry_viewmodel.dart';
 import '../widgets/shared_app_bar.dart';
 
 class EntryDetailPage extends StatefulWidget {
@@ -21,6 +23,7 @@ class _EntryDetailPageState extends State<EntryDetailPage> {
   Future<void> _deleteEntry() async {
     try {
       await _databaseService.deleteEntry(widget.entry.id);
+      Provider.of<EntryViewModel>(context, listen: false).fetchEntries();
 
       Navigator.pop(context, true);
     } catch (error) {

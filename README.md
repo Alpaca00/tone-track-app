@@ -1,10 +1,11 @@
 ## Application Tone Track 
 
-A diary application that analyzes entries based on sentiment analysis, helping users track and understand their emotional states over time.
-
 **Email:** [tonetrack.uno@gmail.com](mailto:tonetrack.uno@gmail.com)
 
-**Public API:** The sentiment analysis API is publicly available and hosted on a private cloud. For more information, please refer to the [GitHub](https://github.com/Alpaca00/tone-track-service).
+A diary application that analyzes entries based on sentiment analysis, helping users track and understand their emotional states over time.
+
+
+**Public API:** The application utilizes a publicly accessible sentiment analysis API, hosted on a private cloud. For more details, please visit the [GitHub](https://github.com/Alpaca00/tone-track-service).
 
 ### Installation Guide on device
 
