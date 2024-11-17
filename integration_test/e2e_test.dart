@@ -15,23 +15,23 @@ void main() {
     app.main();
     await tester.pumpAndSettle();
 
-    final homePage = HomeEntryPage(tester);
+    final homeEntryPage = HomeEntryPage(tester);
     final addEntryPage = AddEntryPage(tester);
     final deleteEntryPage = DeleteEntryPage(tester);
 
-    await homePage.verifyHomePageInitialState();
+    await homeEntryPage.verifyHomePageInitialState();
 
-    await homePage.tapAddButton();
+    await homeEntryPage.tapAddButton();
 
     await addEntryPage.verifyAddEntryPage();
 
     await addEntryPage.enterEntryTextField(TestConstants.expectedEntryText);
     await addEntryPage.tapSaveButton();
 
-    await homePage.verifyModalMessageText();
+    await homeEntryPage.verifyModalMessageText();
 
-    await homePage.verifyAddedEntryItemText();
-    await homePage.tapEntryItem();
+    await homeEntryPage.verifyAddedEntryItemText();
+    await homeEntryPage.tapEntryItem();
 
     await deleteEntryPage.verifyEntryNoteText();
 
@@ -40,6 +40,6 @@ void main() {
 
     await deleteEntryPage.tapConfirmationButton('Yes');
 
-    await homePage.verifyHomePageInitialState();
+    await homeEntryPage.verifyHomePageInitialState();
   });
 }
