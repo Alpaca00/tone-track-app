@@ -7,7 +7,6 @@ import 'package:tone_track/models/entry.dart';
 import 'package:tone_track/pages/home_page.dart';
 import 'package:tone_track/viewmodels/entry_viewmodel.dart';
 
-
 class MockEntryViewModel extends Mock implements EntryViewModel {}
 
 void main() {
@@ -17,7 +16,8 @@ void main() {
     mockEntryViewModel = MockEntryViewModel();
   });
 
-  testWidgets('Should display loading indicator when entries are empty', (tester) async {
+  testWidgets('Should display loading indicator when entries are empty',
+      (tester) async {
     when(mockEntryViewModel.entries).thenReturn(<Entry>[]);
 
     await tester.pumpWidget(
@@ -30,6 +30,3 @@ void main() {
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
 }
-
-
-

@@ -64,7 +64,9 @@ class _HomePageState extends State<HomePage> {
         child: Consumer<EntryViewModel>(
           builder: (context, viewModel, child) {
             if (viewModel.entries.isEmpty) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(
+                  child: Text(
+                      'The first entries will appear as soon as you add them.'));
             } else {
               return ListView.separated(
                 itemCount: viewModel.entries.length,
