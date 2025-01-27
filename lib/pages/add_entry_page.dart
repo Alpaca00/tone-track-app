@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lens_button/lens_button.dart';
 import 'package:provider/provider.dart';
+
 import '../utils/constants.dart';
 import '../viewmodels/entry_viewmodel.dart';
 import '../widgets/shared_app_bar.dart';
@@ -99,19 +101,11 @@ class _AddEntryPageState extends State<AddEntryPage> {
               const SizedBox(height: 16),
               Align(
                 alignment: Alignment.centerRight,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.brown[700],
-                    backgroundColor: Colors.brown[50],
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 12),
-                    textStyle: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  onPressed: _saveEntry,
-                  child: const Text('Save'),
+                child: LensButton(
+                  label: 'Save',
+                  onPressed: () {
+                    _saveEntry();
+                  },
                 ),
               )
             ],
