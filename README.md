@@ -42,3 +42,8 @@ flutter build apk
   <img src="assets/images/details.png" width="200" />
   <img src="assets/images/entry.png" width="200" />
 </p>
+
+
+### Useful Widgets
+
+- **[LensButton](https://github.com/ksokolovskyi/lens_button)**: Amazing button with an animated effect, created by [ksokolovskyi](https://github.com/ksokolovskyi).
