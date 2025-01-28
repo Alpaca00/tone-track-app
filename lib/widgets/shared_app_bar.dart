@@ -18,14 +18,18 @@ class SharedAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.brown[50],
+      backgroundColor: const Color(0xFF212121),
+      iconTheme: IconThemeData(
+        color: Colors.brown[50]
+      ),
       title: animationCompleted
           ? Text(
               Constants.appName,
               style: TextStyle(
+                fontFamily: 'DotoFont',
                 fontSize: 24,
                 fontWeight: FontWeight.normal,
-                color: Colors.brown[700],
+                color: Colors.brown[50],
               ),
             )
           : AnimatedTextKit(
@@ -33,9 +37,10 @@ class SharedAppBar extends StatelessWidget implements PreferredSizeWidget {
                 TyperAnimatedText(
                   Constants.appName,
                   textStyle: TextStyle(
+                    fontFamily: 'DotoFont',
                     fontSize: 24,
                     fontWeight: FontWeight.normal,
-                    color: Colors.brown[700],
+                    color: Colors.brown[50],
                   ),
                 ),
               ],

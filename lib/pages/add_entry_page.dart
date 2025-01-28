@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lens_button/lens_button.dart';
 import 'package:provider/provider.dart';
 
-import '../utils/constants.dart';
 import '../viewmodels/entry_viewmodel.dart';
 import '../widgets/shared_app_bar.dart';
 import '../models/entry.dart';
@@ -73,9 +72,13 @@ class _AddEntryPageState extends State<AddEntryPage> {
       ),
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(Constants.backgroundImage),
-            fit: BoxFit.cover,
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF212121),
+              Color(0xFF484848),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
         ),
         child: Padding(
@@ -83,19 +86,36 @@ class _AddEntryPageState extends State<AddEntryPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Enter your diary entry',
-                style: TextStyle(fontSize: 18, color: Colors.brown[50]),
+                style: TextStyle(
+                    fontFamily: 'LuckyMoonFont',
+                    color: Colors.white,
+                    fontSize: 34),
               ),
               const SizedBox(height: 16),
               TextField(
                 controller: _controller,
                 maxLines: 15,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  hintText: 'Write your entry here...',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'here',
+                  hintStyle: TextStyle(
+                    fontFamily: 'LuckyMoonFont',
+                    color: Colors.white,
+                    fontSize: 34,
+                  ),
                   filled: true,
-                  fillColor: Colors.white.withOpacity(0.8),
+                  fillColor: Color(0xFF212121),
+                  labelStyle: TextStyle(
+                    fontFamily: 'LuckyMoonFont',
+                    color: Colors.white,
+                    fontSize: 34,
+                  ),
                 ),
               ),
               const SizedBox(height: 16),

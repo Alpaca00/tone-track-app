@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../models/entry.dart';
 import '../services/database_service.dart';
-import '../utils/constants.dart';
 import '../utils/date_utils.dart';
 import '../viewmodels/entry_viewmodel.dart';
 import '../widgets/shared_app_bar.dart';
@@ -29,7 +29,11 @@ class _EntryDetailPageState extends State<EntryDetailPage> {
     } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Do not found entry: $error'),
+          content: Text(
+            'Do not found entry: $error',
+            style: const TextStyle(
+                fontFamily: 'FuneverFont', color: Colors.white, fontSize: 16),
+          ),
         ),
       );
     }
@@ -47,29 +51,52 @@ class _EntryDetailPageState extends State<EntryDetailPage> {
         },
         actions: [
           IconButton(
-            icon: const Icon(Icons.delete),
+            icon: Icon(Icons.delete, color: Colors.brown[50]),
             onPressed: () async {
               final confirm = await showDialog<bool>(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: const Text('Delete the entry'),
-                  backgroundColor: Colors.grey.withOpacity(0.3),
-                  content:
-                      const Text('Do you really want to delete this entry?'),
+                  title: const Text(
+                    'Delete the entry',
+                    style: TextStyle(
+                        fontFamily: 'FuneverFont',
+                        color: Colors.white,
+                        fontSize: 16),
+                  ),
+                  backgroundColor: const Color(0xFF212121),
+                  content: const Text(
+                    'Do you really want to delete this entry?',
+                    style: TextStyle(
+                        fontFamily: 'FuneverFont',
+                        color: Colors.white,
+                        fontSize: 16),
+                  ),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context, false),
                       style: TextButton.styleFrom(
-                          backgroundColor: Colors.red[200],
+                          backgroundColor: Colors.white,
                           foregroundColor: Colors.black),
-                      child: const Text('No'),
+                      child: Text(
+                        'No',
+                        style: TextStyle(
+                            fontFamily: 'FuneverFont',
+                            color: Colors.red[200],
+                            fontSize: 16),
+                      ),
                     ),
                     TextButton(
                       onPressed: () => Navigator.pop(context, true),
                       style: TextButton.styleFrom(
-                          backgroundColor: Colors.green[200],
+                          backgroundColor: Colors.white,
                           foregroundColor: Colors.black),
-                      child: const Text('Yes'),
+                      child: Text(
+                        'Yes',
+                        style: TextStyle(
+                            fontFamily: 'FuneverFont',
+                            color: Colors.green[200],
+                            fontSize: 16),
+                      ),
                     ),
                   ],
                 ),
@@ -86,9 +113,13 @@ class _EntryDetailPageState extends State<EntryDetailPage> {
         children: [
           Container(
             decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(Constants.backgroundImage),
-                fit: BoxFit.cover,
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFF212121),
+                  Color(0xFF484848),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
             ),
           ),
@@ -105,7 +136,7 @@ class _EntryDetailPageState extends State<EntryDetailPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.0),
                   ),
-                  color: Colors.grey.withOpacity(0.3),
+                  color: const Color(0xFF212121),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
@@ -118,33 +149,35 @@ class _EntryDetailPageState extends State<EntryDetailPage> {
                                   ? Icons.sentiment_satisfied
                                   : Icons.sentiment_dissatisfied,
                               color: widget.entry.mood.name == 'positive'
-                                  ? Colors.green
-                                  : Colors.red,
+                                  ? Colors.green[200]
+                                  : Colors.red[200],
                               size: 24,
                             ),
                             const SizedBox(width: 8),
                             Text(
                               'Mood: ${widget.entry.mood.name}',
                               style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white70),
+                                  fontFamily: 'FuneverFont',
+                                  color: Colors.white,
+                                  fontSize: 16),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 10),
                         Text(
                           CustomDateUtils.formatDate(widget.entry),
                           style: const TextStyle(
-                              fontSize: 14, color: Colors.white70),
+                              fontFamily: 'FuneverFont',
+                              color: Colors.white,
+                              fontSize: 16),
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 10),
                         Text(
                           'Note:    ${widget.entry.note}',
                           style: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white70),
+                              fontFamily: 'FuneverFont',
+                              color: Colors.white,
+                              fontSize: 16),
                         ),
                       ],
                     ),

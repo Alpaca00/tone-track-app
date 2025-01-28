@@ -21,7 +21,7 @@ dependencies:
   lens_button:
     git:
       url: https://github.com/Alpaca00/lens_button.git
-      ref: tech/update-button
+      ref: tech/ext-button
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
@@ -45,7 +45,17 @@ flutter_icons:
   image_path: "assets/icons/logo.png"
 
 flutter:
+  fonts:
+  - family: LuckyMoonFont
+    fonts:
+      - asset: assets/fonts/Luckymoon.ttf
+  - family: DotoFont
+    fonts:
+      - asset: assets/fonts/Doto.ttf
+  - family: FuneverFont
+    fonts:
+      - asset: assets/fonts/Funever.ttf
   assets:
-    - assets/images/background.jpg
     - assets/icons/logo.png
+    - assets/fonts/
   uses-material-design: true

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../utils/constants.dart';
+
 import '../utils/date_utils.dart';
 import '../utils/text_utils.dart';
 import '../viewmodels/entry_viewmodel.dart';
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
         },
         actions: [
           IconButton(
-            icon: const Icon(Icons.add),
+            icon: Icon(Icons.add, color: Colors.brown[50]),
             onPressed: () async {
               await Navigator.push(
                 context,
@@ -56,9 +56,13 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(Constants.backgroundImage),
-            fit: BoxFit.cover,
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF212121),
+              Color(0xFF484848),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
         ),
         child: Consumer<EntryViewModel>(
@@ -66,12 +70,17 @@ class _HomePageState extends State<HomePage> {
             if (viewModel.entries.isEmpty) {
               return const Center(
                   child: Text(
-                      'The first entries will appear as soon as you add them.'));
+                'The first entries will appear as soon as you add them.',
+                style: TextStyle(
+                    fontFamily: 'LuckyMoonFont',
+                    color: Colors.white,
+                    fontSize: 28),
+              ));
             } else {
               return ListView.separated(
                 itemCount: viewModel.entries.length,
                 separatorBuilder: (context, index) =>
-                    Divider(color: Colors.pink[100]),
+                    Divider(color: Colors.brown[50]),
                 itemBuilder: (context, index) {
                   final entry = viewModel.entries[index];
                   return ListTile(
@@ -80,21 +89,24 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text(
                           'Note: ${CustomTextRenderingUtils.formatHomeListItem(entry)}',
-                          style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              color: Colors.blueGrey[50]),
+                          style: const TextStyle(
+                              fontFamily: 'FuneverFont',
+                              color: Colors.white,
+                              fontSize: 16),
                         ),
                         Text(
                           'Mood: ${entry.mood.name}',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.blueGrey[50],
-                          ),
+                          style: const TextStyle(
+                              fontFamily: 'FuneverFont',
+                              color: Colors.white,
+                              fontSize: 16),
                         ),
                         Text(
                           CustomDateUtils.formatDate(entry),
-                          style: TextStyle(
-                              fontSize: 14, color: Colors.blueGrey[50]),
+                          style: const TextStyle(
+                              fontFamily: 'FuneverFont',
+                              color: Colors.white,
+                              fontSize: 16),
                         ),
                       ],
                     ),
