@@ -37,6 +37,7 @@ flutter build apk
 ### A Snapshot of Screens
 
 <p float="left">
+  <img src="assets/images/empty.png" width="200" />
   <img src="assets/images/home.png" width="200" />
   <img src="assets/images/details.png" width="200" />
   <img src="assets/images/entry.png" width="200" />
