@@ -17,7 +17,7 @@ class SentimentResponse {
 
 class SentimentService {
   final Dio _dio;
-  final String baseUrl = 'https://tone-track.uno';
+  final String baseUrl = 'http://localhost:5000'; // Change this to your server URL
 
   SentimentService({Dio? dio}) : _dio = dio ?? Dio();
 
